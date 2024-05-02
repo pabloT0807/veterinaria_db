@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,400;1,700&family=Noto+Serif+Display:ital,wght@1,300&family=Nunito:wght@200;300;500;600&family=Open+Sans:ital,wght@1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
+
+*{
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+:root{
+    --black:#130f40;
+    --carrot-color:#e67e22;
+    --white:#fff;
+    --light-color:#666;
+    --light-bag:#eee;
+    --border:.2rem solid var(--black);
+    --box-shadow:0 1.5rem 1rem rgba(0,0,0,.1);
+}
+
+@mixin grid($val){
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax($val,1fr));
+    gap:1.5rem;
+}
+
+
+html{
+    font-size: 62.5%;
+    overflow-x:hidden ;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+
+    &::-webkit-scrollbar{
+        width: 1rem;;
+    }
+    &::-webkit-scrollbar-track{
+       background: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: var(--carrot-color);
+        border-radius: 5rem;
+     }
+}
+
+
+a.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 2.8rem;
+    border: var(--border);
+    border-radius:5rem ;
+    border-top-left-radius:0 ;
+    cursor: pointer;
+    background: none;
+    color:var(--black);
+    font-size: 1.7rem;
+    overflow: hidden;
+    z-index: 0;
+    position: relative;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        width: 100%;
+        background: var(--black);
+        z-index: -1;
+        transition: .2s linear;
+        clip-path: circle(0% at 0% 5%);
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        width: 100%;
+        background: var(--black);
+        z-index: -1;
+        transition: .2s linear;
+        clip-path: circle(0% at 0% 5%);
+    }
+    &:hover::before{
+        clip-path: circle(100); /*efecto de relleno al boton*/
+    }
+    &:hover{
+        color: var(--white)
+    }
+}
+
+body{
+    height: auto;
+}
+.header{
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9% ;
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    top :0; left: 0;right: 0;
+    z-index: 1000;
+    /* transform: translateY(-10rem);
+
+    &:active{
+        transform: translateY(0rem);
+
+    }   */
+
+    h3{
+        color:  var(var(--black));
+        font-size: 2.5rem;
+        padding-bottom: .5rem;
+    }
+
+    .logo{
+        font-size: 2.5rem;
+        color: var(--black);
+        font-weight: bolder;
+    }
+    i{
+        color: var(--carrot-color)
+    }
+    .navbar a{ /*links*/
+        margin: 0 1rem;
+        font-size: 1.7rem;
+        color: var(--light-color);
+    
+        &:hover{
+            color:var(--carrot-color)
+        }
+    }
+    .icons a,.icons div{
+        font-size: 2.5rem;
+        margin-left: 1.5rem;
+        color: var(--black);
+        cursor: pointer;
+
+        &:hover{
+            color: var(--carrot-color);
+        }
+    }
+
+}
+
+#menu-btn{
+    display: none;
+
+}
+
+/******Home**/
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: url(../src/imagenes/perro2.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    .content{
+        width: 50rem;
+
+        h3{
+            font-size: 6rem;
+            color : var(--white);
+            padding-bottom: 1rem;
+        }
+        span{
+            color: var(--carrot-color)
+        }
+    }
+    .btn{
+       
+        color: var(--white);
+        border-color: var(--white);
+        
+        &::hover{
+            color:var(--black);
+        }
+        &::before{
+            background:var(--white);
+        }
+         
+    }
+
+  
+}
+.about{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9rem;
+    .image{
+        flex: 1 1 40rem;
+        img{
+            width: 100%;
+        }
+    }
+    .content{
+        flex:1 1 40rem;
+        h3{
+            color: var(--black);
+            font-size:4rem ;
+            span{
+                 color:var(--carrot-color);
+            }
+        }
+        p{
+            font-size: 1.6rem;
+            color: var(--light-color);
+            padding: 1rem 0;
+            line-height: 2;
+        }
+    }
+}
+section{
+    padding: 5rem 9%;
+    
+}
+
+
+section:first-child {
+    min-height: 500px;
+    background-image: url("https://assets.codepen.io/4787486/colin-firth.webp");
+    /* background-image: url(https://picsum.photos/id/122/700/1100); */
+    background-color: #5b7ba8;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+ 
+  
+  section {
+    position: relative;
+    background: #fee4b7;
+  }
+
+  .heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--black);
+    span{
+        color: var(--carrot-color);
+    }
+  }
+
+  /* .box{
+    width: 100%;
+    border-bottom: var(--border);
+    border-width: .1rem;
+    padding: 1.5rem 0;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin: 1rem 0;
+  } */
+
+
+  section:not(:first-child) {
+    margin-top: -1rem;
+    padding-block: 3rem 8rem;
+    transform: skewY(2deg);
+  }
+  section:nth-child(odd):not(:first-child) {
+    background: #fff7e8;
+    transform: skewY(-2deg);
+    border-top: 2px solid #3b2601;
+  }
+  section:first-child {
+    display: grid;
+    place-items: center;
+    font-size: calc(1rem + 6vw);
+  }
+  section:last-child {
+  }
+  section:nth-child(odd):not(:first-child) .container:nth-child(odd) p,
+  section:nth-child(odd):not(:first-child) .container:nth-child(odd) h2 {
+    transform: skewY(2deg);
+  }
+  section:nth-child(even):not(:first-child) .container:nth-child(even) p {
+    transform: skewY(2deg);
+  }
+  
+  .container {
+    width: min(70ch, calc(100% - 90px));
+    margin-inline: auto;
+  }
+
+/**servicios*/
+.services .box-container{
+  display:grid;
+   grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+   gap:1.5rem;
+   
+   box{
+    background: var(--light-bag);
+    padding: 10rem;
+    text-align: center;
+    border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%;
+   }
+   &:hover{
+    border-radius: .5rem;
+   }
+   &:nth-child(even){
+    border-radius: 79% 21% 81% 19% / 58% 93% 7% 42%;
+   }
+   i{
+    height: 6.5rem;
+    width: 6.5rem;
+    line-height: 6.5rem;
+    font-size: 3em;
+    color: var(--white);
+    background: var(--carrot-color);
+    border-radius: 50%;
+    margin-bottom: .5rem;
+   }
+   h3{
+    font-size: 2.2rem;
+    color: var(--black);
+    padding: 1rem 0;
+   }
+}
+
+
+
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+
